@@ -29,6 +29,6 @@ int main(void) {
   if (aux == 1) {
     printf("engual\n");
   }
-
+asasassasa
   return 0;
 }
