@@ -45,27 +45,26 @@ float MediaTurma(aluno vetor[],int n){
 }
 
 void ordenacao(aluno vetor[],int n){
-    float maior;
-    int i,j,indMaior;
+    int maior=0;
+    int i=0,j=0;
     aluno aux;
     for(i=0;i<n-1;i++){
-        maior=vetor[i].media;
+        maior=i;
         for(j=i+1;j<n;j++){
-            if(vetor[j].media>maior){
-                maior = vetor[j].media;
-                indMaior = j;
+            if(vetor[j].media>vetor[maior].media){
+                maior = j;
             }
         }
         aux = vetor[i];
-        vetor[i] = vetor[indMaior];
-        vetor[indMaior]=aux;
+        vetor[i]=vetor[maior];
+        vetor[maior]=aux;
     }
 }
 
 void Imprimir(aluno vetor[],int n){
     int i;
     for(i=0;i<n;i++){
-        printf("O alune %s media: %.2f\n",vetor[i].nome,vetor[i].media);
+        printf("O alune %s media: %f\n",vetor[i].nome,vetor[i].media);
     }
 }
 
