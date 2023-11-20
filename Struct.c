@@ -19,8 +19,8 @@ int Ler (aluno vetor[]){
     return n;
 }
 
-void MediaIndividual(aluno vetor[],int n){
-    int i;
+int MediaIndividual(aluno vetor[],int n){
+    int i,cont=0;
     for(i=0;i<n;i++){
         printf("O aluno %s tem P1: %f e P2: %f \n",vetor[i].nome, vetor[i].P1, vetor[i].P2);
         vetor[i].media = (vetor[i].P1+vetor[i].P2)/2;
@@ -31,7 +31,11 @@ void MediaIndividual(aluno vetor[],int n){
             vetor[i].media=vetor[i].VS;
             printf("Sua nova media eh %f",vetor[i].media);
         }
+        if(vetor[i].media>=6){
+            cont++;
+        }
     }
+    return cont;
 }
 
 float MediaTurma(aluno vetor[],int n){
@@ -61,6 +65,21 @@ void ordenacao(aluno vetor[],int n){
     }
 }
 
+float mediana(aluno vetor[],int n){
+    int aux;
+    float mediane;
+    
+        if(n%2==0){
+            aux = n/2;
+            mediane = (vetor[aux].media+vetor[aux-1].media)/2;
+            return mediane;
+        }
+        aux=n/2;
+        mediane = vetor[aux].media;
+        return mediane;
+}
+
+
 void Imprimir(aluno vetor[],int n){
     int i;
     for(i=0;i<n;i++){
@@ -68,17 +87,60 @@ void Imprimir(aluno vetor[],int n){
     }
 }
 
+void ordemAlpha(aluno vetor[],int n){
+    int menor=0;
+    int i=0,j=0,k;
+    int aux =1;
+    aluno auxiliar;
+    for(i=0;i<n-1;i++){
+        menor =i;
+        for(j=i+1;j<n;j++){
+            
+            for (k = 0; k < 21; k++) {
+                if (vetor[i].nome[k] != vetor[j].nome[k]) {
+                    if (vetor[menor].nome[k] > vetor[j].nome[k]) {
+                        aux = 0;
+                        k = 22;
+                        menor =j;
+                }  else {
+                        aux = 0;
+                        k = 22;
+                    }
+                    }
+        }
+
+        
+    }
+    auxiliar = vetor[i];
+    vetor[i]=vetor[menor];
+    vetor[menor]=auxiliar;
+}
+}
+
 int main(){
     aluno vetor[50];
-    int n;
+    int n,Aprov;
     float mediaGeral;
-    n=Ler(vetor);
-    MediaIndividual(vetor,n);
-    mediaGeral=MediaTurma(vetor,n);
-    printf(" Media geral: %.2f\n",mediaGeral);
-    ordenacao(vetor,n);
+
+    n=Ler(vetor); // Ler Alunos
+
+    Aprov=MediaIndividual(vetor,n); // Media de cada aluno
+    mediaGeral=MediaTurma(vetor,n); // media da Turma
+    ordenacao(vetor,n); // Ordenar médias decrescente
+
+    printf(" Media geral: %.2f\n",mediaGeral); // Imprimir Media da turma
+    printf("Mediana eh: %f\n",mediana(vetor,n)); // Imprimir mediana das médias
+    printf("Aprovados: %d Reprovados: %d\n",Aprov,n-Aprov); // Imprimir aprovados e reprovados
+    printf("\n");
+    printf("Ordenacao Decrescente");
+    Imprimir(vetor,n); // Imprimir ordenação
+
+    ordemAlpha(vetor,n);
+    printf("\n");
+    printf("Ordenacao Ordem Alfabetica \n");
     Imprimir(vetor,n);
-    
+
+
 
     return 0;
 }
