@@ -18,8 +18,10 @@ int main(){
     int numero[61];
     int i,N,cont=0;
     char pe[61];
-    scanf("%d",&N);
-    for(i=0;i<N;i++){
+
+    while(scanf("%d",&N)==1){
+    cont=0;
+        for(i=0;i<N;i++){
         scanf("%d %c",&numero[i],&pe[i]);
     }
     for(i=0;i<N;i++){
@@ -27,6 +29,8 @@ int main(){
             cont++;
         }
     }
-    printf("%d",cont);
+    printf("%d\n",cont);
+    
+    }
     return 0;
 }

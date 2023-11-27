@@ -25,12 +25,12 @@ int main(){
     int isPalindrome = 1; // Assumindo que já é um palíndromo (inicialmente)
     int i,j,cont;
     
-    scanf("%[^\n]",S);
+    scanf("%100[^\n]",S);
 
     converte(S);
     cont = conta(S) ;
-    printf("%s",S);
-    printf("%d",cont);
+    //printf("%s",S);
+    //printf("%d",cont);
     j= cont -1;
     i=0;
     
@@ -54,6 +54,7 @@ int main(){
         printf("eh um palindromo");
     }
 
+    return 0;
 }
 
 

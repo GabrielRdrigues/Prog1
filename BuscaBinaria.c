@@ -9,16 +9,18 @@ int main()
     for(i=0;i<n;i++){
         scanf("%d",&v[i]);
     }
-    ini = 1;
+
+    ini = 0; // TALVEZ SEJA 1
     fim= n;
+
     while(ini<=fim){
         meio=(ini+fim)/2;
         if(v[meio]==k){
             printf("achou");
             fim=ini-1;
             aux=1;
-        }else{
-            if(v[meio]<k){
+        }else{                          
+            if(v[meio]<k){         
                 ini=meio+1;
             }else{
                 fim=meio-1;

@@ -140,7 +140,5 @@ int main(){
     printf("Ordenacao Ordem Alfabetica \n");
     Imprimir(vetor,n);
 
-
-
     return 0;
 }

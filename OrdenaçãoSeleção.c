@@ -19,12 +19,12 @@ int main()
     }
 
     printf("\n");
-
+  
     // Ordenação do vetor
     for(i=0;i<n-1;i++){
         indM=i;
         for(j=i+1;j<n;j++){
-            if(v[j]<v[i]){
+            if(v[j]<v[indM]){
                 indM=j;
             }
         }
