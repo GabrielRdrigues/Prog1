@@ -4,7 +4,7 @@ void frequencia(int V[],char S[],int N){
     int i,aux=0;
    
 
-     for(i=0;i<N;i++){
+     for(i=0;i<26;i++){
         V[i]=0;
     }
 
