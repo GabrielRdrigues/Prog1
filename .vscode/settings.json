@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "albumdacopa": "c"
+        "albumdacopa": "c",
+        "string.h": "c",
+        "random": "c"
     }
 }

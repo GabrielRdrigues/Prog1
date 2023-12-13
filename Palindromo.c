@@ -6,8 +6,8 @@ int main(){
     int i=0,j=0,aux=0;
     int cont=0;
 
-    scanf(" %99[^\n]",S); // Existe alguma forma que eu possa ler uma string ex Rio Das Ostras? | riodasostras
- 
+    scanf(" %[^\n]",S); // Existe alguma forma que eu possa ler uma string ex Rio Das Ostras | riodasostras
+
     // Vendo o tamanho da string
 
     for(i=0;S[i]!='\0';i++){
@@ -23,15 +23,16 @@ int main(){
     }
 
     //printf("%d",cont);
-    //printf("%s",S);
- 
-    // Processamento principal
+   // printf("%s",S);
+
+
+
+    // Processamento 
     i=0;
     j=cont-1;
 
     if(cont%2==0){
         while(aux!=1){
-          if(S[i]!=' ' || S[j]!=' '){
             if(S[i]==S[j]){
                 i++;
                 j--;
@@ -39,36 +40,16 @@ int main(){
             }else{
                 aux=-1;
             }
-          }else{
-             if(S[i]==' '){
-                i++;
-             }
-             if(S[j]==' '){
-                j--;
-              }
-              aux = j - i;
-          }   
         }
     }else{
         while(j!=i){
-           if(S[i]!=' ' || S[j]!=' ') {
-                if(S[i]==S[j]){
+            if(S[i]==S[j]){
                 i++;
                 j--;
                 aux = j - i;
             }else{
                 aux=-1;
             }
-           }else{
-             if(S[i]==' '){
-                i++;
-             }
-             if(S[j]==' '){
-                j--;
-              }
-              aux = j - i;
-           }
-            
         }
     }
 
@@ -77,14 +58,16 @@ int main(){
 
     // Resultados é ou não é
     if(aux==1){
-        printf("A palavra: '%s' eh um palindromo",S);
+        printf("A palavra: %s eh um palindromo",S);
     }else{
         if(j==i){
-        printf("A palavra: '%s' eh um palindromo",S);
+        printf("A palavra: %s eh um palindromo",S);
     }else{
         printf("nao eh");
     }
     }
     
+
+
     return 0;
 }

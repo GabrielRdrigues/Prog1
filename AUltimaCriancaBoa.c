@@ -4,6 +4,27 @@ typedef struct string{
     char string[50];
 }string;
 
+
+void strLower(char copia[]){
+    int i,j;
+
+ for(i=0;copia[i]!='\0';i++){
+    if(copia[i]<='Z' && copia[i]>='A'){
+            copia[i]= 'a' + (copia[i]-'A');
+            }
+        }
+}
+
+
+
+void converte(string copia[],int n){
+    int i;
+    for(i=0;i<n;i++){
+        strLower(copia[i].string);
+    }
+}
+
+
 int cmp(string A[],int minimo,int j){
     int i;
     for(i=0;A[minimo].string[i]==A[j].string[i] && A[minimo].string[i]!='\0';i++){}
@@ -15,6 +36,7 @@ int cmp(string A[],int minimo,int j){
     }else{
         return 1;
     }
+    
 }
 
 int indM(string vetor[],int i,int fim){
@@ -41,13 +63,23 @@ void selecao(string vetor[],int ini,int fim){
 
 int main(){
     string vetor[20];
+    string copia[20];
     int n,i;
     scanf("%d",&n);
     for(i=0;i<n;i++){
         scanf("%s",vetor[i].string);
+        copia[i]=vetor[i];
     }
-    selecao(vetor,0,n-1);
+
+    converte(copia,n);
+
     for(int i=0;i<n;i++){
-        printf("%d - %s\n",i,vetor[i].string);
+       printf("%d - %s\n",i,vetor[i].string);
     }
+
+
+    //selecao(vetor,0,n-1);
+    //for(int i=0;i<n;i++){
+      //  printf("%d - %s\n",i,vetor[i].string);
+    //}
 }
