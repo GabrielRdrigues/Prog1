@@ -2,6 +2,8 @@
     "files.associations": {
         "albumdacopa": "c",
         "string.h": "c",
-        "random": "c"
+        "random": "c",
+        "BuscaVetor.C": "c",
+        "stdlib.h": "c"
     }
 }
